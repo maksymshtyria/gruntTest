@@ -31,69 +31,64 @@ module.exports = function (grunt) {
     },
 
     jshint: {
-      // define the files to lint , 'assets/zoob/app/**/*.js', 'test/**/*.js'
-      files: ['gruntfile.js', 'assets/zoob/app/**/*.js', 'api/**/*.js'],
+      // define the files to lint
+      files: [
+      'Gruntfile.js', 
+      'assets/js/models/**/*.js',
+      'assets/js/collections/**/*.js',
+      'assets/js/routers/**/*.js',
+      'assets/js/views/**/*.js'
+      ],
       // configure JSHint (documented at http://www.jshint.com/docs/)
-      options: {
-        ignores: ['assets/zoob/app/bundle.js', 'assets/zoob/app/vendors.js'],
-        'bitwise': true,
-        'camelcase': false,
-        'curly': true,
-        'eqeqeq': true,
-        'forin': true,
-        'immed': true,
-        'indent': 2,
-        'latedef': true,
-        'newcap': false,
-        'noarg': true,
-        'nonew': true,
-        'plusplus': false,
-        'quotmark': true,
-        'regexp': true,
-        'strict': false,
-        'maxparams': 10, //fix in future
-        'maxdepth': 3,
-        'maxstatements': 20,
-        'maxcomplexity': 5,
-        'browser': true,
-        'jquery': true,
-        'node': true,
-        'sub': true,
-        'evil': true,
-        'loopfunc': true,
-        'boss': true,
-        'noempty': true,
-        'trailing': true,
-        'undef': true,
-        'unused': true,
-        'shadow': true,
-        'debug': true,
-        'freeze': true,
-        'supernew': true,
-        'iterator': true,
-        'proto': true,
-        'asi': true,
-        'funcscope': true,
-        'expr': true,
-        globals: {
-          jQuery: true,
-          console: true,
-          module: true,
-          angular: true,
-          io: true,
-          Appointment: true,
-          LoginService: true,
-          ProviderService: true,
-          UserService: true,
-          ImageService: true,
-          User: true,
-          AppointmentService: true,
-          EmailService: true,
-          Hook: true,
-          MedicalAlert: true,
-          MedicalAlertService: true
-        }
-      }
+		options: {
+			ignores: ['assets/js/bundle.js', 'assets/js/vendors.js'],
+			'bitwise': true,
+			'camelcase': false,
+			'curly': true,
+			'eqeqeq': true,
+			'forin': true,
+			'immed': true,
+			'indent': 2,
+			'latedef': true,
+			'newcap': false,
+			'noarg': true,
+			'nonew': true,
+			'plusplus': false,
+			'quotmark': true,
+			'regexp': true,
+			'strict': false,
+			'maxparams': 10, //fix in future
+			'maxdepth': 3,
+			'maxstatements': 20,
+			'maxcomplexity': 5,
+			'browser': true,
+			'jquery': true,
+			'node': true,
+			'sub': true,
+			'evil': true,
+			'loopfunc': true,
+			'boss': true,
+			'noempty': true,
+			'trailing': true,
+			'undef': true,
+			'unused': true,
+			'shadow': true,
+			'debug': true,
+			'freeze': true,
+			'supernew': true,
+			'iterator': true,
+			'proto': true,
+			'asi': true,
+			'funcscope': true,
+			'expr': true,
+			globals: {
+			  jQuery: true,
+			  console: true,
+			  module: true,
+			  angular: true,
+			  io: true
+			}
+    	}
     },
 
     copy: {
@@ -155,7 +150,7 @@ module.exports = function (grunt) {
 
   // When Sails is lifted:
   grunt.registerTask('default', ['jshint']);
-  grunt.registerTask('dev', ['jshint', 'shell:bundleLibs', 'shell:bundle', 'clean', 'copy', 'less', 'watch']);
-  grunt.registerTask('prod', ['jshint', 'shell:bundleLibs','shell:bundle', 'clean', 'copy', 'less']);
+  grunt.registerTask('dev', ['jshint', 'shell:bundleLibs', 'shell:bundle', 'clean', 'less', 'copy', 'watch']);
+  grunt.registerTask('prod', ['jshint', 'shell:bundleLibs','shell:bundle', 'less', 'clean', 'copy']);
 
 };
